@@ -21,6 +21,15 @@ typedef struct
 
 static task_exe_svc _task_exe = {0};
 
+int task_exe_set_volume(void* arg)
+{
+    int* volume = (int*)arg;
+    lombo_system_set_volume(*volume);
+    g_BaseInfo.playVolume = *volume;
+    lombo_system_sound_play(WELCOME_SOUND);
+
+    return 0;
+}
 // 播放字符串任务
 int task_exe_PlayString(void *str)
 {

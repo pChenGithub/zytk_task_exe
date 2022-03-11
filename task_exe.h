@@ -23,6 +23,7 @@ typedef struct {
     char str[16];                   // 一个比较短的字符串
 } task_exe_req;
 
+int task_exe_set_volume(void* arg);
 // 播放字符串任务
 int task_exe_PlayString(void *str);
 // 播放音频任务
