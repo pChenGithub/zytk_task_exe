@@ -78,7 +78,10 @@ int task_exe_WifiSsidCopy(void* arg)
     CONNECT_INFO connect_info;
     memset(&connect_info, 0, sizeof(connect_info));
     if (0==sta_get_connect_info(&connect_info))
+    {
         memcpy(g_WifiInfo.wifi_Ssid, connect_info.ssid, WIFI_SSID_LEN);
+        (g_WifiInfo.wifi_Ssid)[WIFI_SSID_LEN-1] = 0;
+    }
 #endif
     return 0;
 }
